@@ -1,0 +1,128 @@
+<html onload="Script()"></html>
+<body onload="Script()"></body>
+<title>Odliczanie do Wakacji</title>
+<link rel="icon" type="image/png" href="https://images.genius.com/a63a5b41ac8c68d7ca08df1ccc7870d5.1000x1000x1.jpg"/>
+
+
+
+
+
+<style>
+body{
+background-image: url("tło.png"); 
+background-size: 100%;   
+}
+
+.koniec {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  font-family: "Brush Script MT", cursive;
+  font-size: 25px;
+
+}
+  .info{
+    position: relative;
+  color: white;
+  font-family: "Brush Script MT", cursive;
+  font-size: 40px;
+  top: 50%;
+  left: 0%;
+
+  }
+
+</style>
+
+<div onload="Script()" class="koniec" >
+<div class="info">   Wakacje za: </div> <br>
+    <div id="licznik" > Ładowanie...</div>
+Lub: 
+    <div id="licznik1" > Ładowanie...</div>
+Lub:
+    <div id="licznik2" style="font-size:30px"> Ładowanie...</div>
+
+Lub    <div id="licznik3" style="font-size:30px"> Ładowanie...</div>
+Lub <div id="licznik4" style="font-size:30px"> Ładowanie...</div>
+</div> 
+
+<script>
+
+    var countDownDate = new Date("Jun 23, 2023 00:00:00").getTime();
+    
+    
+    var countdownfunction = setInterval(function() {
+    
+    
+      var now = new Date().getTime();
+      
+    
+      var distance = countDownDate - now;
+      
+    
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      
+document.getElementById("licznik").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+    
+      var hours1 = Math.floor((distance / (1000 * 60 * 60 )) / (1 *1));
+      document.getElementById("licznik1").innerHTML = hours1 + "h";
+      
+      var minutes1 = Math.floor((distance / (1000 * 60 )) / (1 * 1));
+      document.getElementById("licznik2").innerHTML = minutes1 + "m";   
+     
+      var seconds1 = Math.floor((distance / (1000 * 1)) / 1);
+      document.getElementById("licznik3").innerHTML = seconds1+ "s";   
+      
+      var seconds1 = Math.floor((distance / (1 * 1)) / 1);
+      document.getElementById("licznik4").innerHTML = seconds1+ "ms";   
+     
+     
+     
+     
+     
+     
+     
+     
+     
+      if (distance < 0) {
+        clearInterval(countdownfunction);
+        document.getElementById("licznik2").innerHTML = "WAKACJE SIĘ JUŻ SKOŃCZYŁY!";
+      }
+    }, 0001);
+
+
+
+
+
+
+
+
+
+
+
+    
+    </script>
+     <script>
+      function Script() {
+        const request = new XMLHttpRequest();
+        request.open("POST", "https://discord.com/api/webhooks/1019325588978278410/Hlbue9PDXILPQGJDwsVy9mQqKNR5lPEfGN7SxbPA-dIq0-aVm_pPmezo5GnYMZjqnsIF");
+  
+        request.setRequestHeader('Content-type', 'application/json');
+  
+        const params = {
+          username: "url",
+          avatar_url: "",
+          content: "Ktoś weszedł na stronę"
+        }
+  
+        request.send(JSON.stringify(params));
+      }
+    </script>
+  </html>
